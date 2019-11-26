@@ -1,24 +1,13 @@
-# hello-world
+# Classroom-Management-System-ui
 
-## Project setup
+## 安装node,npm,（如果你没有的话）
+
+## 配置依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 启动服务，默认运行本地8080端口
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
