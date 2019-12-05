@@ -10,12 +10,12 @@
 
 
   <el-form-item label="密码">
-    <el-input v-model="form.password"></el-input>  
+    <el-input v-model="form.password"  type="password" ></el-input>  
   </el-form-item>
 
 
   <el-form-item label="确认密码">
-    <el-input v-model="form.repassword"></el-input>  
+    <el-input v-model="form.repassword"  type="password" ></el-input>  
   </el-form-item>
 
 
@@ -74,7 +74,7 @@ import signUp  from "@/api/user/signup/"
           if (res.status>0){
             this.$notify.error({
               title:'注册失败',
-              message:'res.msg',
+              message:res.msg,
             })
           }else{
             this.$notify({
@@ -82,6 +82,7 @@ import signUp  from "@/api/user/signup/"
               message:'您已成为我们的用户',
               type:'success',
             })
+            
           }
         }).catch((error)=>{
           this.$notify.error({

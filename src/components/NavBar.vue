@@ -1,20 +1,41 @@
 <template>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router >
-  <el-menu-item index="/">首页</el-menu-item>
-  <el-menu-item index="/classroom">教室详情</el-menu-item>
-  <el-menu-item index="/classroom/roomregister">教室预定</el-menu-item>
-  <el-menu-item index="/about">关于我们</el-menu-item>
-  <el-menu-item  left=20px index="4"><a href="" target="_blank">我的信息</a></el-menu-item>
+  <div>
+<el-menu
+  :default-active="activeIndex2"
+  class="el-menu-demo"
+  mode="horizontal"
+  @select="handleSelect"
+  background-color="#545c64"
+  text-color="#fff"
+  active-text-color="#ffd04b"
+  router>
+  <el-menu-item index="/about">首页</el-menu-item>
+  <el-menu-item index="/classroom">我的课堂</el-menu-item>
+  <el-menu-item index="/roomregister">
+    我的预定
+  </el-menu-item>
+  <el-menu-item index="/information">我的信息</el-menu-item>
+  <el-menu-item index="login" > 登录</el-menu-item>
+    <el-menu-item index="/register" > 注册</el-menu-item>
 </el-menu>
+  </div>
+
 </template>
 
 
 <script>
-export default {
-   name:'NavBar',
-};
+  export default {
+    name:'NavBar',
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      // handleSelect(key, keyPath) {
+      //   console.log(key, keyPath);
+      // }
+    }
+  }
 </script>
-
-<style scoped lang="scss">
-
-</style>

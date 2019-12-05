@@ -1,6 +1,7 @@
 <template>
-  <div class="about">
-    <el-container>
+
+<div>
+  <el-container>
   <el-header><NavBar></NavBar></el-header>
 </el-container>
  <el-container>
@@ -8,21 +9,24 @@
      
     </el-main>
   </el-container>
-  </div>
-</template>
-<script>
-// import side from "@/components/fram/sidefram.vue"
-// import card from "@/components/card/Card.vue"
-import NavBar from "@/components/NavBar.vue"
 
-export default {
-  name: 'classroom',
-  components: {
-       NavBar,
-          // side,
+</div>
+
+</template>
+
+
+
+<script>
+import NavBar from "@/components/NavBar.vue"
+  export default {
+    name:'myinformation',
+    components:{
+      NavBar,
+    }
   }
-}
 </script>
+
+
 
 
 <style>

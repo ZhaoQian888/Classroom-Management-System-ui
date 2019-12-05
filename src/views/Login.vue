@@ -1,40 +1,36 @@
 <template>
-  <div class="about">
-    <el-container>
-  <el-header><NavBar></NavBar></el-header>
-</el-container>
+    <div id='login'>
+  
  <el-container>
     <el-main>
-     
+      <signinform></signinform>
     </el-main>
   </el-container>
-  </div>
+    
+    </div>
 </template>
-<script>
-// import side from "@/components/fram/sidefram.vue"
-// import card from "@/components/card/Card.vue"
-import NavBar from "@/components/NavBar.vue"
 
+
+<script>
+import signinform from '@/components/form/Signinform.vue'
 export default {
-  name: 'classroom',
-  components: {
-       NavBar,
-          // side,
-  }
+    name:'login',
+    components:{
+      signinform,
+    },
 }
 </script>
 
-
 <style>
   .el-header, .el-footer {
-    background-color:#545c64;
+    background-color: #B3C0D1;
     color: #333;
     text-align: center;
     line-height: 60px;
   }
   
   .el-aside {
-    background-color: #545c64;
+    background-color: #D3DCE6;
     color: #333;
     text-align: center;
     line-height: 200px;
