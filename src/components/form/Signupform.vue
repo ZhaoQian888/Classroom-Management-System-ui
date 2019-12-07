@@ -1,6 +1,6 @@
 <template>
 <div class="signupform">
-  <H3>立即注册</H3>
+  <h1 text-align:center>立即注册</h1>
   <el-form ref="form" :model="sizeform" label-width="80px" width="600px" height="600px">
   
   
@@ -35,7 +35,7 @@
 
   <el-form-item>
     <el-button type="primary" @click="onSubmit">立即注册</el-button>
-    <el-button>取消</el-button>
+    <el-button @click="cancel">取消</el-button>
   </el-form-item>
 
 </el-form>
@@ -69,6 +69,9 @@ import signUp  from "@/api/user/signup/"
       };
     },
     methods: {
+      cancel(){
+         this.$router.push({path: '/'})
+      },
       onSubmit() {
         signUp(this.form).then((res)=>{
           if (res.status>0){
@@ -79,10 +82,10 @@ import signUp  from "@/api/user/signup/"
           }else{
             this.$notify({
               title:'注册成功',
-              message:'您已成为我们的用户',
+              message:'您已成为我们的用户,正在为您跳转',
               type:'success',
             })
-            
+              this.$router.push({path: '/'})
           }
         }).catch((error)=>{
           this.$notify.error({

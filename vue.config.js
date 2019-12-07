@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     proxy: {
       '^/gin': {
-        target: 'http://localhost:8008',
+        target: 'http://www.monks.top:80',
         ws: true,
         changeOrigin: true,
       },

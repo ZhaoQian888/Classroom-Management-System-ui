@@ -15,6 +15,8 @@
     我的预定
   </el-menu-item>
   <el-menu-item index="/information">我的信息</el-menu-item>
+
+  
   <el-menu-item index="login" > 登录</el-menu-item>
     <el-menu-item index="/register" > 注册</el-menu-item>
 </el-menu>

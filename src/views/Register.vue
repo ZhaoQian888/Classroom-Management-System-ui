@@ -3,12 +3,26 @@
   
  <el-container>
     <el-main>
-      <signupform></signupform>
+      <div class ="ds">
+          <signupform></signupform>
+      </div>
+     
     </el-main>
   </el-container>
     
     </div>
 </template>
+
+<style scoped>
+.ds{
+  height:800px;
+  width :500px;
+  margin: 0 auto;
+  border: 1px ;
+
+}
+</style>
+
 
 
 <script>

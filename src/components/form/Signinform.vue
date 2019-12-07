@@ -18,7 +18,7 @@
 
   <el-form-item>
     <el-button type="primary" @click="onSubmit">立即登录</el-button>
-    <el-button>取消</el-button>
+    <el-button @click="cancel">取消</el-button>
   </el-form-item>
 
 </el-form>
@@ -36,6 +36,7 @@
 
 <script>
 import signIn  from "@/api/user/signin/"
+// import { setTimeout } from 'timers';
 // const axios=require('axios')
   export default {
       name: 'signinform',
@@ -48,12 +49,16 @@ import signIn  from "@/api/user/signin/"
       };
     },
     methods: {
+      cancel(){
+        this.$router.push({path: '/'})
+      },
       onSubmit() {
         signIn(this.form).then((res)=>{
           if (res.status>0){
             this.$notify.error({
               title:'登录失败',
               message:res.msg,
+              // type:'fail',
             })
           }else{
             this.$notify({
@@ -61,7 +66,9 @@ import signIn  from "@/api/user/signin/"
               message:'即将为您跳转',
               type:'success',
             })
+      
             this.$router.push({path: '/'})
+            
           }
         }).catch((error)=>{
           this.$notify.error({

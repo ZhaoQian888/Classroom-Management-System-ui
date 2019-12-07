@@ -6,7 +6,7 @@
 </el-container>
  <el-container>
     <el-main>
-     
+     <img src="@/assets/qq.jpg">
     </el-main>
   </el-container>
 
