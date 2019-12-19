@@ -7,7 +7,11 @@
  <el-container>
     <el-main>
       <div>
-     <img src="../assets/qq.jpg">
+<div id="app">
+  <span>Message: {{ msg }}</span>
+  <!-- 这里的 `foo` 不会更新！ -->
+  <button v-on:click="msg='111'">Change it</button>
+</div>
       </div>
     </el-main>
   </el-container>
@@ -20,10 +24,16 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
+
   export default {
     name:'home',
     components:{
       NavBar,
+    },
+    methods:{
+      // onclck(){
+        // msg='ssss';
+      // }
     }
   }
 </script>
