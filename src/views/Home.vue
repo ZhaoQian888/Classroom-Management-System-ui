@@ -4,18 +4,9 @@
   <el-container>
   <el-header><NavBar></NavBar></el-header>
 </el-container>
- <el-container>
-    <el-main>
-      <div>
-<div id="app">
-  <span>Message: {{ msg }}</span>
-  <!-- 这里的 `foo` 不会更新！ -->
-  <button v-on:click="msg='111'">Change it</button>
-</div>
-      </div>
-    </el-main>
-  </el-container>
-
+<b-container style="margin: 50px auto">
+  <carousel></carousel>
+</b-container>
 </div>
 
 </template>
@@ -24,11 +15,12 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
-
+import carousel from "@/components/carousel.vue"  
   export default {
     name:'home',
     components:{
       NavBar,
+      carousel
     },
     methods:{
       // onclck(){
@@ -36,7 +28,10 @@ import NavBar from "@/components/NavBar.vue"
       // }
     }
   }
+
+
 </script>
+
 
 
 
