@@ -2,13 +2,17 @@
    <div>
       <el-container>
   <el-header><NavBar></NavBar></el-header>
+
 </el-container>
- <el-container>
-    <el-main>
-     
-    </el-main>
-  </el-container>
+
+<b-container>
+        <div style="margin: 50px auto">
+        <Forms></Forms>
+      </div>
+</b-container>
+
    </div>
+
 </template>
 
 
@@ -16,11 +20,14 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
+import Forms from "@/components/form/Form.vue"
 export default{
-   name:'roomregisterr',
+   name:'roomregister',
    components:{
       NavBar,
-   }
+      Forms,
+   },
+
 }
 </script>
 

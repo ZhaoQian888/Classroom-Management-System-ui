@@ -4,11 +4,23 @@
   <el-container>
   <el-header><NavBar></NavBar></el-header>
 </el-container>
- <el-container>
-    <el-main>
-     
-    </el-main>
-  </el-container>
+<b-container>
+    <b-card header="个人信息表" style="margin: 50px auto">
+      <b-list-group v-for="(value, key) in info" v-bind:key="(value,key)">
+        <b-list-group-item>
+            <b-row>
+              <b-col sm="3">
+                <strong>{{key}}</strong>
+              </b-col>
+              <b-col sm="9">
+                {{value}}
+              </b-col>
+          </b-row>
+        </b-list-group-item>
+      </b-list-group>
+    </b-card>
+
+</b-container>
 
 </div>
 
@@ -22,6 +34,18 @@ import NavBar from "@/components/NavBar.vue"
     name:'myinformation',
     components:{
       NavBar,
+    },
+    data() {
+      return {
+        info: 
+          {
+            昵称:'wang',
+            用户名: '小王',
+            学号:'19000',
+            邮箱:'19000@pku.edu.cn'
+          },
+        
+      }
     }
   }
 </script>

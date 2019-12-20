@@ -9,9 +9,13 @@
   text-color="#fff"
   active-text-color="#ffd04b"
   router>
-  <el-menu-item index="/about">首页</el-menu-item>
-  <el-menu-item index="/classroom">我的课堂</el-menu-item>
+  <!-- //更改了首页 -->
+  <el-menu-item index="/">首页</el-menu-item>
   <el-menu-item index="/roomregister">
+    预约教室
+  </el-menu-item>
+  <el-menu-item index="/classroom">教室信息</el-menu-item>
+  <el-menu-item index="/registerinfo">
     我的预定
   </el-menu-item>
   <el-menu-item style="float:right" index="/information">我的信息</el-menu-item>

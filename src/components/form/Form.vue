@@ -1,71 +1,112 @@
 <template>
-    <el-form ref="form" :model="form" label-width="80px">
-  <el-form-item label="活动名称">
-    <el-input v-model="form.name"></el-input>
-  </el-form-item>
-  <el-form-item label="活动区域">
-    <el-select v-model="form.region" placeholder="请选择活动区域">
-      <el-option label="区域一" value="shanghai"></el-option>
-      <el-option label="区域二" value="beijing"></el-option>
-    </el-select>
-  </el-form-item>
-  <el-form-item label="活动时间">
-    <el-col :span="11">
-      <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
-    </el-col>
-    <el-col class="line" :span="2">-</el-col>
-    <el-col :span="11">
-      <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
-    </el-col>
-  </el-form-item>
-  <el-form-item label="即时配送">
-    <el-switch v-model="form.delivery"></el-switch>
-  </el-form-item>
-  <el-form-item label="活动性质">
-    <el-checkbox-group v-model="form.type">
-      <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-      <el-checkbox label="地推活动" name="type"></el-checkbox>
-      <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-      <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-    </el-checkbox-group>
-  </el-form-item>
-  <el-form-item label="特殊资源">
-    <el-radio-group v-model="form.resource">
-      <el-radio label="线上品牌商赞助"></el-radio>
-      <el-radio label="线下场地免费"></el-radio>
-    </el-radio-group>
-  </el-form-item>
-  <el-form-item label="活动形式">
-    <el-input type="textarea" v-model="form.desc"></el-input>
-  </el-form-item>
-  <el-form-item>
-    <el-button type="primary" @click="onSubmit">立即创建</el-button>
-    <el-button>取消</el-button>
-  </el-form-item>
-</el-form>
+    <b-card class="mt-3" header="进行预约">
+      <div>
+        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+          <b-form-group id="input-group-1" label="教室号:" label-for="input-1">
+            <b-form-select
+              id="input-1"
+              v-model="form.room"
+              :options="rooms"
+              required
+            ></b-form-select>
+          </b-form-group>
+
+          <b-form-group id="input-group-2" label="日期:" label-for="input-2">
+            <b-form-select
+              id="input-2"
+              v-model="form.date"
+              :options="days"
+              required
+            ></b-form-select>
+          </b-form-group>
+
+        <b-form-group id="input-group-3" label="时间段：">
+          <b-form-radio v-model="form.period" name="some-radios" value="A">Option A</b-form-radio>
+          <b-form-radio v-model="form.period" name="some-radios" value="B">Option B</b-form-radio>
+          <b-form-radio v-model="form.period" name="some-radios" value="B">Option B</b-form-radio>
+        </b-form-group>
+        <div class="mt-3">您选择的是: <strong>{{ form.period }}</strong></div>
+
+          <b-form-group
+            id="input-group-4"
+            label="电话号码:"
+            label-for="input-4"
+            description="我们不会泄漏您的隐私"
+          >
+            <b-form-input
+              id="input-4"
+              v-model="form.phone"
+              type="phone"
+              required
+              placeholder="请输入电话号码"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group id="input-group-5" label="您的学号:" label-for="input-5">
+            <b-form-input
+              id="input-5"
+              v-model="form.id"
+              required
+              placeholder="请输入你的学号"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group id="input-group-6" label="教室使用者:" label-for="input-6">
+            <b-form-input
+              id="input-6"
+              v-model="form.user"
+              required
+              placeholder="教室使用者的名字"
+            ></b-form-input>
+          </b-form-group>
+
+
+          <b-button type="submit" variant="primary">提交</b-button>
+          <b-button type="reset" variant="danger">清空</b-button>
+        </b-form>
+      </div>      
+    </b-card>
+
 </template>
+
 <script>
   export default {
-      name: 'registerform',
+    name:'Forms',
     data() {
       return {
         form: {
+          email: '',
           name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        }
+          food: null,
+          checked: []
+        },
+        rooms: [{ text: '请选择一个教室', value: null },3201,3202,3203,3204,3205,3206,3301,3302,3303,3304,3305,3306],
+        days: [{ text: '请选择一天', value: null },'星期一','星期二','星期三','星期四','星期五','星期六','星期日'],
+        show: true,
+        selected: ''
       }
     },
     methods: {
-      onSubmit() {
-        alert('submit!');
+      onSubmit(evt) {
+        evt.preventDefault()
+        //此处应修改为提交post请求
+        alert(JSON.stringify(this.form))
+      },
+      onReset(evt) {
+        evt.preventDefault()
+        // Reset our form values
+        this.form.room = null
+        this.form.date = null
+        this.form.period = ''
+        this.form.phone = ''
+        this.form.id = ''
+        this.form.user = ''
+        // Trick to reset/clear native browser form validation state
+        this.show = false
+        this.$nextTick(() => {
+          this.show = true
+        })
       }
     }
   }
 </script>
-
