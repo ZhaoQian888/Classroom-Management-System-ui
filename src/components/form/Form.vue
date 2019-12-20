@@ -21,9 +21,9 @@
           </b-form-group>
 
         <b-form-group id="input-group-3" label="时间段：">
-          <b-form-radio v-model="form.period" name="some-radios" value="A">Option A</b-form-radio>
-          <b-form-radio v-model="form.period" name="some-radios" value="B">Option B</b-form-radio>
-          <b-form-radio v-model="form.period" name="some-radios" value="B">Option B</b-form-radio>
+          <b-form-radio v-model="form.period" name="some-radios" value="上午">上午</b-form-radio>
+          <b-form-radio v-model="form.period" name="some-radios" value="下午">下午</b-form-radio>
+          <b-form-radio v-model="form.period" name="some-radios" value="晚上">晚上</b-form-radio>
         </b-form-group>
         <div class="mt-3">您选择的是: <strong>{{ form.period }}</strong></div>
 
