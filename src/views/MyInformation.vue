@@ -30,6 +30,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
+import axios from 'axios';
   export default {
     name:'myinformation',
     components:{
@@ -41,10 +42,18 @@ import NavBar from "@/components/NavBar.vue"
           {
             昵称:'wang',
             用户名: '小王',
-            学号:'19000',
             邮箱:'19000@pku.edu.cn'
           },
         
+      }
+    },
+    methods :{
+      updated(){
+        axios.get("/gin/info/myinfo").then(res=>{
+          this.info.昵称=res.data.nickname;
+          this.info.用户名=res.data.user_name;
+          this.info.邮箱=res.data.email;
+        })
       }
     }
   }
