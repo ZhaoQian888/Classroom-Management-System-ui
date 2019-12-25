@@ -44,6 +44,7 @@ const routes = [
   {
     path:'/information',
     name:'information',
+
     component: () => import(/* webpackChunkName: "about" */ './views/MyInformation.vue')
   
   },
@@ -60,3 +61,26 @@ const router = new VueRouter({
 })
 
 export default router
+
+router.beforeEach((to, from, next) => {
+  // 1. 判断是不是登录页面
+  // 是登录页面
+  if(to.path === '/login' || (to.path === '/register')) {
+    next()
+  } else {
+    // 不是登录页面
+    // 2. 判断 是否登录过
+    const axios = require('axios')
+    axios.defaults.withCredentials = true; 
+    axios.get('/gin/status')
+    .then(response => {
+      //alert(response.data.status)
+      if(response.data.status===0){
+        next();
+      } else{
+        next('/login');
+      }
+    })
+
+  }
+})

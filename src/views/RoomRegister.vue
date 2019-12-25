@@ -27,7 +27,6 @@ export default{
       NavBar,
       Forms,
    },
-
 }
 </script>
 

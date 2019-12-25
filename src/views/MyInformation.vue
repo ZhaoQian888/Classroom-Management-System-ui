@@ -6,7 +6,7 @@
 </el-container>
 <b-container>
     <b-card header="个人信息表" style="margin: 50px auto">
-      <b-list-group v-for="(value, key) in info" v-bind:key="(value,key)">
+      <b-list-group v-for="(value, key) in info" v-bind:key="(value,key)" >
         <b-list-group-item>
             <b-row>
               <b-col sm="3">
@@ -30,6 +30,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue"
+const axios = require('axios');
   export default {
     name:'myinformation',
     components:{
@@ -37,16 +38,18 @@ import NavBar from "@/components/NavBar.vue"
     },
     data() {
       return {
-        info: 
-          {
-            昵称:'wang',
-            用户名: '小王',
-            学号:'19000',
-            邮箱:'19000@pku.edu.cn'
-          },
-        
+        info:null,       
       }
-    }
+    },
+    //get请求返回个人信息，去除历史信息
+    mounted () {
+    axios
+      .get('/gin/info/myinfo')
+      .then(response => {
+        delete response.data.data.History
+        this.info = response.data.data
+      })
+    },
   }
 </script>
 
