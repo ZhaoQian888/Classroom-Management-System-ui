@@ -22,6 +22,11 @@ import carousel from "@/components/carousel.vue"
       NavBar,
       carousel
     },
+    data(){
+      return{
+        islogin:true
+      }
+    },
     methods:{
       // onclck(){
         // msg='ssss';

@@ -17,6 +17,7 @@
 
 
   <el-form-item>
+    <el-button type="primary" @click="login">注册新帐号</el-button>
     <el-button type="primary" @click="onSubmit">立即登录</el-button>
     <el-button @click="cancel">取消</el-button>
   </el-form-item>
@@ -77,6 +78,10 @@ import signIn  from "@/api/user/signin/"
           });
         });
       },
+      login(){
+        this.$router.push({path: '/register'})
+      },
     },
+
   }
 </script>

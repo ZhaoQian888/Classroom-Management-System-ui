@@ -1,5 +1,8 @@
 <template>
     <div id='register'>
+  <el-container>
+  <el-header><NavBar></NavBar></el-header>
+</el-container>
   
  <el-container>
     <el-main>
@@ -26,11 +29,13 @@
 
 
 <script>
+import NavBar from "@/components/NavBar.vue"
 import signupform from '@/components/form/Signupform.vue'
 export default {
     name:'register',
     components:{
       signupform,
+      NavBar
     },
 }
 </script>

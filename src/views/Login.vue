@@ -1,5 +1,8 @@
 <template>
     <div id='login'>
+          <el-container>
+  <el-header><NavBar></NavBar></el-header>
+</el-container>
   
  <el-container>
     <el-main>
@@ -15,11 +18,13 @@
 
 
 <script>
+import NavBar from "@/components/NavBar.vue"
 import signinform from '@/components/form/Signinform.vue'
 export default {
     name:'login',
     components:{
       signinform,
+      NavBar
     },
 }
 </script>
